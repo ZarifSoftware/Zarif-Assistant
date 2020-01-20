@@ -1,0 +1,36 @@
+  {% extends 'base.html' %}
+{% load static %}
+{% block title %} Zarif Assistant{% endblock title %}
+  {% block body %}
+  <br>
+  <br><br>
+  <br><br><br><br><br>
+          <div class="container">
+            <div class="row">
+              {% if que %}
+                <div class="card ml-0 my-2 p-2" style="width: 35rem; height:auto; background-color:rgb(255, 255, 255);">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 18px;"><b> {{ user }}</b></h5>
+                        <p class="card-text" style="font-size: 25px; color:black ;">{{que}}</p>
+                    </div>
+                </div>
+              {% endif %}
+              {% if ans %}
+                <div class="card ml-0 my-2 p-1" style="width: 34rem; height:auto; background-color:rgb(255, 255, 255);">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 18px;"><b> Bot</b></h5>
+                        <p class="card-text" style="font-size: 25px; color:black ;">{{ans}}</p>
+                    </div>
+                </div>
+              {% endif %}
+              <br>
+              <br>
+            </div>
+      <form method="POST" action="get" >
+          {% csrf_token %}
+            <input type="search" class="form-control" placeholder="Tell me" aria-label="query" name="query" style="font-size: 30px;">
+            <button type="submit" class="btn btn-primary" style="width: 200px;">Send</button>
+      </form>
+      </div>
+    <br><br><br><br><br>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Home- Zarif Assistant {% endblock title %}
+{% block body %}
+        <h1 class="jumbotron-heading"><span id="typed"></span></h1>
+        {% if user.is_authenticated %}
+        <p class="lead text-muted"><h3>Welcome {{user}} to Zarif assistant.</h3></p>
+
+        <a type="button" class="btn btn-danger" href="bot">Chat with Robot</a>
+        {% else %}
+        <p class="lead text-muted"><h3>Welcome to Zarif assistant.</h3></p>
+          <div>
+          <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</a>
+        </div>
+        {% endif %}
+    {% block content %}
+    {% endblock content %}
+     <br>
+     <br>
+     <br><br><br><br><br><br><br><br>
+</section>
+{% endblock body %} 

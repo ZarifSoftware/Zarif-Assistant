@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+welcome to Our WeatherSite 
+{% endblock title %}
+{% block body %}
+<h2>Welcome to our WeatherSite.</h2>
+{% if name %}
+<div class="container">
+    <div class="card">
+        <div class="card-body" style="width: auto; height:auto; background-color:rgb(235, 108, 108);">
+            <h3 style="color:blue">City :</h3>{{name}} <br>
+            <h3 style="color:blue">Temperature (°F):</h3> {{temp}} F° ({{desc}})
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<form method="POST" action="get_weather">
+    {% csrf_token %}
+    <input type="search" class="form-control" placeholder="Enter Your City:" aria-label="city" name="city" style="font-size: 20px; width:70rem;">
+    <button type="submit" class="btn btn-primary" style="width: 200px;">Get Weather</button>
+</form>
+{% endblock body %}
